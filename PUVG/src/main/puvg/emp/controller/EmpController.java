@@ -26,11 +26,11 @@ public class EmpController {
 	
 	@GetMapping(value="selectallemp")
 	public ModelAndView selectAllemp() {
-		logger.info("��Ʈ�ѷ� ����");
+		logger.info("11111");
 		mav.setViewName("emp/empSelectall");
-		logger.info("����� ���� �Ϸ�");
+		logger.info("22222");
 		List<Empvo> list = empService.empselectall();
-		logger.info("list �� �޾ƿ��� �Ϸ�");
+		logger.info("33333");
 		mav.addObject("selectall", list);
 		return mav;
 	}
