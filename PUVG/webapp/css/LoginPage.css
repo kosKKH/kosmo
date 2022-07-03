@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+html {
+	margin : auto;
+	background-color : gray;
+}
+
+body {
+	margin: 0px;
+}
+
+#main_div {
+	width : 100%;
+	height : 900px;
+	
+}
+
+#photo_div {
+	width : 75%;
+	height : 100%;
+	background-color : red;
+	float:left;
+}
+
+#login_div {
+	width : 25%;
+	height : 100%;
+	background-color : blue;
+	float : right;
+	text-align : center;
+	
+}
+
+#login_form {
+	position: relative;
+    top: 50%;
+}
+
+#mem_id, #mem_pw {
+	width : 200px;
+	height : 20px;
+}
+
+#login_btn {
+	width : 200px;
+	height : 30px;
+}
