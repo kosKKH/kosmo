@@ -33,6 +33,7 @@
 				$("#menusmall1").slideUp();
 				$("#menusmall2").slideUp();
 			});
+
 		});
 	</script>
 
@@ -40,13 +41,13 @@
 	<body>
 		<div id="menu">
 			<div class="logo">
-			로고 들어갈 자리
+			<a href="mainpage.puvg">로고 들어갈 자리</a>
 			</div>
 			<div id="menuBig1" class="menuBig">
-				메뉴 1
+				사원정보
 			</div>
 			<div id="menusmall1" class="menuSmall">
-				<a href="#">소제목1</a><br>
+				<a href="memberInsertForm.puvg">사원 등록</a><br>
 				<a href="#">소제목2</a><br>
 				<a href="#">소제목3</a><br>
 			</div>
@@ -70,14 +71,16 @@
 		<div id="top_bar">
 		<%
 			HttpSession Session = request.getSession(false);
-			String VID = (String)Session.getAttribute("VID");
 			String VNAME = (String)Session.getAttribute("VNAME");
 		%>
-			<font size="2"><%= VID %>님 <%= VNAME %> 안녕하세요!</font>
-		<%
-
-		%>
-			날씨정보, 오늘날짜, XXX님 안녕하세요
+			<div id="top_bar_weather">
+			
+			</div>
+			<div id="top_bar_login">
+				<font size="2"><%= VNAME %>님 안녕하세요!</font>
+			</div>
+			<a href="memberSelect.puvg"><font size="2">내 정보</font></a>
+			<a href="logout.puvg"><font size="2">로그아웃</font></a>
 		</div>
 	</body>
 </html>
