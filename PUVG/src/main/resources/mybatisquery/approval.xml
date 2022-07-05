@@ -5,11 +5,11 @@
 <mapper namespace="main.puvg.approval.dao.ApprovalDAO">
 
 	<select id="ApprovalListSelectAll" parameterType ="approvallistvo" resultType="ApprovalListVO">
-		SELECT * FROM APPROVAL_LIST;
+		SELECT * FROM APPROVAL_LIST
 	</select>
 	
 	<select id="ApprovalListSelect" parameterType ="approvallistvo" resultType="approvallistvo">
-		SELECT * FROM APPROVAL_LIST WHERE VDOCNUM = #{vdocnum};
+		SELECT * FROM APPROVAL_LIST WHERE VDOCNUM = #{vdocnum}
 	</select>
 	
 	<insert id="Appr1Docinsert" parameterType ="appr1docvo">
@@ -47,12 +47,12 @@
 			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
-			SYSDATE,
-		);
+			SYSDATE
+		)
 	</insert>
 	
 	<select id="Appr1DocSelect" parameterType ="appr1docvo" resultType="appr1docvo">
-		SELECT * FROM APPR1_DOC WHERE VDOCNUM = #{vdocnum};
+		SELECT * FROM APPR1_DOC WHERE VDOCNUM = #{vdocnum}
 	</select>
 	
 	<insert id="Appr2Docinsert" parameterType ="appr2docvo">
@@ -86,12 +86,12 @@
 			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
-			SYSDATE,
-		);
+			SYSDATE
+		)
 	</insert>
 	
 	<select id="Appr2DocSelect" parameterType ="appr2docvo" resultType="appr2docvo">
-		SELECT * FROM APPR2_DOC WHERE VDOCNUM = #{vdocnum};
+		SELECT * FROM APPR2_DOC WHERE VDOCNUM = #{vdocnum}
 	</select>
 	
 	<insert id="Appr3Docinsert" parameterType ="appr3docvo">
@@ -131,8 +131,8 @@
 			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
-			SYSDATE,
-		);
+			SYSDATE
+		)
 	</insert>
 	
 	<select id="Appr3DocSelect" parameterType ="appr3docvo" resultType="appr3docvo">
@@ -168,12 +168,12 @@
 			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
-			SYSDATE,
+			SYSDATE
 		);
 	</insert>
 	
 	<select id="Appr4DocSelect" parameterType ="appr4docvo" resultType="appr4docvo">
-		SELECT * FROM APPR4_DOC WHERE VDOCNUM = #{vdocnum};
+		SELECT * FROM APPR4_DOC WHERE VDOCNUM = #{vdocnum}
 	</select>
 	
 	<insert id="ApprovalLineInsert" parameterType ="approvallinevo">
@@ -187,12 +187,12 @@
 			#{vlinecode, jdbcType=VARCHAR},
 			#{vline1 jdbcType=VARCHAR},
 			#{vlin2, jdbcType=VARCHAR},
-			#{vlin3, jdbcType=VARCHAR},
+			#{vlin3, jdbcType=VARCHAR}
 		);
 	</insert>
 	
 	<select id="ApprovalLineSelect" parameterType ="approvallinevo" resultType="approvallinevo">
-		SELECT * FROM APPROVAL_LINE WHERE VLINECODE = #{vlinecode};
+		SELECT * FROM APPROVAL_LINE WHERE VLINECODE = #{vlinecode}
 	</select>
 	
 	<insert id="ApprovalTempInsert" parameterType ="approvaltempvo">
@@ -217,14 +217,14 @@
 			#{deleteyn, jdbcType=VARCHAR},
 			#{insertdate, jdbcType=VARCHAR},
 			#{updatedate, jdbcType=VARCHAR}
-		);
+		)
 	</insert>
 	
 	<select id="ApprovalTempSelectAll" parameterType ="approvaltempvo" resultType="approvaltempvo">
-		SELECT * FROM APPROVAL_TEMP;
+		SELECT * FROM APPROVAL_TEMP
 	</select>
 	
 	<select id="ApprovalTempSelectl" parameterType ="ApprovalListVO" resultType="ApprovalListVO">
-		SELECT * FROM APPROVAL_TEMP WHERE VDOCNUM = #{vdocnum};
+		SELECT * FROM APPROVAL_TEMP WHERE VDOCNUM = #{vdocnum}
 	</select>
 </mapper>
