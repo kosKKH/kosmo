@@ -32,19 +32,19 @@
 			UPDATEDATE
 		)
 		VALUES(
-			#{vdocnum, jdbcType=VARCHAR2},
-			#{vdept, jdbcType=VARCHAR2},
-			#{vnum, jdbcType=VARCHAR2},
-			#{vname, jdbcType=VARCHAR2},
-			#{vsubj, jdbcType=VARCHAR2},
-			#{vlinecode, jdbcType=VARCHAR2},
-			#{vtype, jdbcType=VARCHAR2},
-			#{vstart, jdbcType=VARCHAR2},
-			#{vend, jdbcType=VARCHAR2},
-			#{vdate, jdbcType=VARCHAR2},
-			#{vleft, jdbcType=VARCHAR2},
-			#{vline, jdbcType=VARCHAR2},		
-			#{vfile, jdbcType=VARCHAR2},
+			#{vdocnum, jdbcType=VARCHAR},
+			#{vdept, jdbcType=VARCHAR},
+			#{vnum, jdbcType=VARCHAR},
+			#{vname, jdbcType=VARCHAR},
+			#{vsubj, jdbcType=VARCHAR},
+			#{vlinecode, jdbcType=VARCHAR},
+			#{vtype, jdbcType=VARCHAR},
+			#{vstart, jdbcType=VARCHAR},
+			#{vend, jdbcType=VARCHAR},
+			#{vdate, jdbcType=VARCHAR},
+			#{vleft, jdbcType=VARCHAR},
+			#{vline, jdbcType=VARCHAR},		
+			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
 			SYSDATE,
@@ -73,17 +73,17 @@
 			UPDATEDATE
 		)
 		VALUES(
-			#{vdocnum, jdbcType=VARCHAR2},
-			#{vdept, jdbcType=VARCHAR2},
-			#{vnum, jdbcType=VARCHAR2},
-			#{vname, jdbcType=VARCHAR2},
-			#{vsubj, jdbcType=VARCHAR2},
-			#{vitem, jdbcType=VARCHAR2},
-			#{vitemname, jdbcType=VARCHAR2},
-			#{vunit, jdbcType=VARCHAR2},
-			#{vquantity, jdbcType=VARCHAR2},
-			#{vline, jdbcType=VARCHAR2},
-			#{vfile, jdbcType=VARCHAR2},
+			#{vdocnum, jdbcType=VARCHAR},
+			#{vdept, jdbcType=VARCHAR},
+			#{vnum, jdbcType=VARCHAR},
+			#{vname, jdbcType=VARCHAR},
+			#{vsubj, jdbcType=VARCHAR},
+			#{vitem, jdbcType=VARCHAR},
+			#{vitemname, jdbcType=VARCHAR},
+			#{vunit, jdbcType=VARCHAR},
+			#{vquantity, jdbcType=VARCHAR},
+			#{vline, jdbcType=VARCHAR},
+			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
 			SYSDATE,
@@ -115,20 +115,20 @@
 			UPDATEDATE
 		)
 		VALUES(
-			#{vdocnum, jdbcType=VARCHAR2},
-			#{vdept, jdbcType=VARCHAR2},
-			#{vnum, jdbcType=VARCHAR2},
-			#{vname, jdbcType=VARCHAR2},
-			#{vsubj, jdbcType=VARCHAR2},
-			#{vlinecode, jdbcType=VARCHAR2},
-			#{vdates, jdbcType=VARCHAR2},
-			#{vbills, jdbcType=VARCHAR2},
-			#{vacquaintance, jdbcType=VARCHAR2},
-			#{vamount, jdbcType=VARCHAR2},
-			#{vpayment, jdbcType=VARCHAR2},
-			#{vnote, jdbcType=VARCHAR2},
-			#{vline, jdbcType=VARCHAR2},
-			#{vfile, jdbcType=VARCHAR2},
+			#{vdocnum, jdbcType=VARCHAR},
+			#{vdept, jdbcType=VARCHAR},
+			#{vnum, jdbcType=VARCHAR},
+			#{vname, jdbcType=VARCHAR},
+			#{vsubj, jdbcType=VARCHAR},
+			#{vlinecode, jdbcType=VARCHAR},
+			#{vdates, jdbcType=VARCHAR},
+			#{vbills, jdbcType=VARCHAR},
+			#{vacquaintance, jdbcType=VARCHAR},
+			#{vamount, jdbcType=VARCHAR},
+			#{vpayment, jdbcType=VARCHAR},
+			#{vnote, jdbcType=VARCHAR},
+			#{vline, jdbcType=VARCHAR},
+			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
 			SYSDATE,
@@ -156,16 +156,16 @@
 			UPDATEDATE
 		)
 		VALUES(
-			#{vdocnum, jdbcType=VARCHAR2},
-			#{vdept, jdbcType=VARCHAR2},
-			#{vnum, jdbcType=VARCHAR2},
-			#{vname, jdbcType=VARCHAR2},
-			#{vsubj, jdbcType=VARCHAR2},
-			#{vlinecode, jdbcType=VARCHAR2},
-			#{vprojectname, jdbcType=VARCHAR2},
-			#{vprojectsubj, jdbcType=VARCHAR2},
-			#{vline, jdbcType=VARCHAR2},
-			#{vfile, jdbcType=VARCHAR2},
+			#{vdocnum, jdbcType=VARCHAR},
+			#{vdept, jdbcType=VARCHAR},
+			#{vnum, jdbcType=VARCHAR},
+			#{vname, jdbcType=VARCHAR},
+			#{vsubj, jdbcType=VARCHAR},
+			#{vlinecode, jdbcType=VARCHAR},
+			#{vprojectname, jdbcType=VARCHAR},
+			#{vprojectsubj, jdbcType=VARCHAR},
+			#{vline, jdbcType=VARCHAR},
+			#{vfile, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
 			SYSDATE,
@@ -184,10 +184,10 @@
 			VLINE3
 		)
 		VALUES(
-			#{vlinecode, jdbcType=VARCHAR2},
-			#{vline1 jdbcType=VARCHAR2},
-			#{vlin2, jdbcType=VARCHAR2},
-			#{vlin3, jdbcType=VARCHAR2},
+			#{vlinecode, jdbcType=VARCHAR},
+			#{vline1 jdbcType=VARCHAR},
+			#{vlin2, jdbcType=VARCHAR},
+			#{vlin3, jdbcType=VARCHAR},
 		);
 	</insert>
 	
@@ -208,15 +208,15 @@
 			UPDATEDATE
 		)
 		VALUES(
-			#{vsubnum, jdbcType=VARCHAR2},
-			#{vdocnum, jdbcType=VARCHAR2},
-			#{vdept, jdbcType=VARCHAR2},
-			#{vnum, jdbcType=VARCHAR2},
-			#{vname, jdbcType=VARCHAR2},
-			#{vsubj, jdbcType=VARCHAR2},
-			#{deleteyn, jdbcType=VARCHAR2},
-			#{insertdate, jdbcType=VARCHAR2},
-			#{updatedate, jdbcType=VARCHAR2}
+			#{vsubnum, jdbcType=VARCHAR},
+			#{vdocnum, jdbcType=VARCHAR},
+			#{vdept, jdbcType=VARCHAR},
+			#{vnum, jdbcType=VARCHAR},
+			#{vname, jdbcType=VARCHAR},
+			#{vsubj, jdbcType=VARCHAR},
+			#{deleteyn, jdbcType=VARCHAR},
+			#{insertdate, jdbcType=VARCHAR},
+			#{updatedate, jdbcType=VARCHAR}
 		);
 	</insert>
 	
@@ -224,7 +224,7 @@
 		SELECT * FROM APPROVAL_TEMP;
 	</select>
 	
-	<select id="ApprovalListSelectAll" parameterType ="ApprovalListVO" resultType="ApprovalListVO">
+	<select id="ApprovalTempSelectl" parameterType ="ApprovalListVO" resultType="ApprovalListVO">
 		SELECT * FROM APPROVAL_TEMP WHERE VDOCNUM = #{vdocnum};
 	</select>
 </mapper>
