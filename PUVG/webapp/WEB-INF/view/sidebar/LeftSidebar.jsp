@@ -22,6 +22,8 @@
 			});
 		});
 		
+		// 		<jsp:include page="../sidebar/LeftSidebar.jsp" flush="true"/> << body안에다가 div 태그로 감싼다음에 해당 태그 넣기
+		
 	</script>
 	</head>
 	<body>
