@@ -10,77 +10,75 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link href="css/LeftSidebar.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript">
+	
 		$(document).ready(function(){
-			$("#menusmall1").hide();
-			$("#menusmall2").hide();
-			$("#menusmall3").hide();
-			
-			$("#menuBig1").click(function(){
-				$("#menusmall1").slideDown();
-				$("#menusmall2").slideUp();
-				$("#menusmall3").slideUp();
+			$(".menus").click(function(){
+				$(this).children(".submenu").stop().slideDown();
 			});
-			
-			$("#menuBig2").click(function(){
-				$("#menusmall2").slideDown();
-				$("#menusmall1").slideUp();
-				$("#menusmall3").slideUp();
+			$(".menus").mouseleave(function(){
+				$(this).children(".submenu").stop().slideUp();
 			});
-			
-			$("#menuBig3").click(function(){
-				$("#menusmall3").slideDown();
-				$("#menusmall1").slideUp();
-				$("#menusmall2").slideUp();
-			});
-
 		});
+		
 	</script>
-
 	</head>
 	<body>
-		<div id="menu">
-			<div class="logo">
-			<a href="mainpage.puvg">로고 들어갈 자리</a>
-			</div>
-			<div id="menuBig1" class="menuBig">
-				사원정보
-			</div>
-			<div id="menusmall1" class="menuSmall">
-				<a href="memberInsertForm.puvg">사원 등록</a><br>
-				<a href="#">소제목2</a><br>
-				<a href="#">소제목3</a><br>
-			</div>
-			<div id="menuBig2" class="menuBig">
-				메뉴 2
-			</div>
-			<div id="menusmall2" class="menuSmall">
-				<a href="#">menu1</a><br>
-				<a href="#">menu2</a><br>
-				<a href="#">menu3</a><br>
-			</div>
-			<div id="menuBig3" class="menuBig">
-				메뉴 3
-			</div>
-			<div id="menusmall3" class="menuSmall">
-				<a href="#">작은 메뉴1</a><br>
-				<a href="#">작은 메뉴2</a><br>
-				<a href="#">작은 메뉴3</a><br>
-			</div>
+	<header>
+		<div id="tops" class="tops">
 		</div>
-		<div id="top_bar">
-		<%
-			HttpSession Session = request.getSession(false);
-			String VNAME = (String)Session.getAttribute("VNAME");
-		%>
-			<div id="top_bar_weather">
-			
+	</header>
+		<div id="menu" class="menu">
+			<div class="logo" style="align-items: center; display: flex; justify-content: center;">
+				<img Class="img" src="/PUVG/css/icons/logo.png" style="width: 60%; height: 80%"/>
 			</div>
-			<div id="top_bar_login">
-				<font size="2"><%= VNAME %>님 안녕하세요!</font>
-			</div>
-			<a href="memberSelect.puvg"><font size="2">내 정보</font></a>
-			<a href="logout.puvg"><font size="2">로그아웃</font></a>
+			<label for="expand-menu"><div>&nbsp;&nbsp;&nbsp;&nbsp;메뉴</div></label>
+			 <input type="checkbox" id="expand-menu" name="expand-menu">
+			 <ul id = "nav-v1">
+			   <li class = "menus"><a href="#" class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;일정관리</div></a>
+		        	<ul class="submenu">
+		        		<li>결재1</li>
+		        		<li>결재2</li>
+		        		<li>결재3</li>
+		        	</ul>
+		        </li>
+		       <li class = "menus"><a href="#" class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;웹저장소</div></a>
+		        	<ul class="submenu">
+		        		<li>결재1</li>
+		        		<li>결재2</li>
+		        		<li>결재3</li>
+		        	</ul>
+		        </li>
+		        <li class = "menus"><a href="#" class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;소통게시판</div></a>
+		        	<ul class="submenu">
+		        		<li>결재1</li>
+		        		<li>결재2</li>
+		        		<li>결재3</li>
+		        	</ul>
+		        </li>
+		        <li class = "menus"><a href="#" class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;결재문서</div></a>
+		        	<ul class="submenu">
+		        		<li>결재1</li>
+		        		<li>결재2</li>
+		        		<li>결재3</li>
+		        	</ul>
+		        </li>
+		        <li class = "menus"><a href="#" class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;이메일</div></a>
+		        	<ul class="submenu">
+		        		<li>결재1</li>
+		        		<li>결재2</li>
+		        		<li>결재3</li>
+		        	</ul>
+		        </li>
+			   <li class = "menus"><a href="#" class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;즐겨찾기</div></a>
+		        	<ul class="submenu">
+		        		<li>결재1</li>
+		        		<li>결재2</li>
+		        		<li>결재3</li>
+		        	</ul>
+		        </li>
+             </ul>
 		</div>
 	</body>
 </html>
