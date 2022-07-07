@@ -37,22 +37,36 @@ public class LoginController {
 		List<MemberVO> loginlist = loginService.LoginCheck(mvo);
 		mav.setViewName("main/LoginPage");
 		
-		logger.info("mvo.getVnum() = " + (loginlist.get(0)).getVnum());
-		logger.info("mvo.getVname() = " + (loginlist.get(0)).getVname());
 		
-		HttpSession Session = request.getSession(true);
-		Session.setAttribute("VID", (loginlist.get(0)).getVnum());
-		Session.setAttribute("VNAME",(loginlist.get(0)).getVname());
-		logger.info("Session 생성 = " +Session);
 		if (loginlist.size() == 0) {
 			logger.info("로그인 실패");
 			return "fail";
 		} else {
 			logger.info("로그인 성공");
+			//logger.info("mvo.getVnum() = " + (loginlist.get(0)).getVnum());
+			//logger.info("mvo.getVname() = " + (loginlist.get(0)).getVname());
+			//logger.info("mvo.getVauthority() = " + (loginlist.get(0)).getVauthority());
+			
+			HttpSession Session = request.getSession(true);
+			Session.setAttribute("VID", (loginlist.get(0)).getVnum());
+			Session.setAttribute("VNAME",(loginlist.get(0)).getVname());
+			Session.setAttribute("VAUTHORITY",(loginlist.get(0)).getVauthority());
+			logger.info("Session 생성 = " +Session);
+			
 			mav.addObject("loginlist", loginlist);
 			return "success";
 		}
+	}
+	
+	@GetMapping(value="logout")
+	public ModelAndView Logout(HttpServletRequest request) {
+		mav.setViewName("main/LoginPage");
+		HttpSession Session = request.getSession(false);
+		Session.invalidate();
+		Session = request.getSession(false);
+		logger.info("Session 삭제 = " + Session);
 		
+		return mav;
 		
 	}
 }

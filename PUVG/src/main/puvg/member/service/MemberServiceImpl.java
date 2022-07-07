@@ -19,9 +19,14 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired(required=false)
 	private MemberDAO memberDAO;
 	
-	public List<MemberVO> MemberSelect(List<MemberVO> mvo){
-		logger.info("MemberServiceImpl.memberSelect() 진입");
+	public List<MemberVO> MemberSelect(MemberVO mvo){
+		logger.info("MemberServiceImpl.MemberSelect() 진입");
 		return memberDAO.MemberSelect(mvo);
+	}
+	
+	public int MemberInsert(MemberVO mvo) {
+		logger.info("MemberServiceImpl.MemberInsert() 진입");
+		return memberDAO.MemberInsert(mvo);
 	}
 
 }

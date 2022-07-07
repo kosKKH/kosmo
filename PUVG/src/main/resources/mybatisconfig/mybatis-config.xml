@@ -5,12 +5,5 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="main.puvg.member.vo.MemberVO" alias="membervo"/>
-		<typeAlias type="main.puvg.member.vo.Appr1DovVO" alias="appr1docvo"/>
-		<typeAlias type="main.puvg.member.vo.Appr2DovVO" alias="appr2docvo"/>
-		<typeAlias type="main.puvg.member.vo.Appr3DovVO" alias="appr3docvo"/>
-		<typeAlias type="main.puvg.member.vo.Appr4DovVO" alias="appr4docvo"/>
-		<typeAlias type="main.puvg.member.vo.ApprovalLineVO" alias="approvallinevo"/>
-		<typeAlias type="main.puvg.member.vo.ApprovalListVO" alias="approvallistvo"/>
-		<typeAlias type="main.puvg.member.vo.ApprovalTempVO" alias="approvaltempvo"/>
 	</typeAliases>
 </configuration>

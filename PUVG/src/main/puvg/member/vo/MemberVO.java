@@ -1,34 +1,47 @@
 package main.puvg.member.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVO {
 	private String vnum;
 	private String vname;
-	private String vemall;
+	private String vemail;
+	private String vemail2;
 	private String vpw;
 	private String vaddr;
+	private String vaddr2;
 	private String vph;
 	private String vdept;
 	private String vrank;
 	private String vbirth;
 	private String vhiredate;
 	private String vdeleteyn;
+	private String vimg;
+	private int vauthority;
+	private MultipartFile vfile;
 	
 	public MemberVO() {
 	}
 
-	public MemberVO(String vnum, String vname, String vemall, String vpw, String vaddr, String vph, String vdept,
-			String vrank, String vbirth, String vhiredate, String vdeleteyn) {
+	public MemberVO(String vnum, String vname, String vemail, String vemail2, String vpw, String vaddr, String vaddr2, String vph,
+			String vdept, String vrank, String vbirth, String vhiredate, String vdeleteyn, String vimg,
+			int vauthority, MultipartFile vfile) {
 		this.vnum = vnum;
 		this.vname = vname;
-		this.vemall = vemall;
+		this.vemail = vemail;
+		this.vemail2 = vemail2;
 		this.vpw = vpw;
 		this.vaddr = vaddr;
+		this.vaddr2 = vaddr2;
 		this.vph = vph;
 		this.vdept = vdept;
 		this.vrank = vrank;
 		this.vbirth = vbirth;
 		this.vhiredate = vhiredate;
 		this.vdeleteyn = vdeleteyn;
+		this.vimg = vimg;
+		this.vauthority = vauthority;
+		this.vfile = vfile;
 	}
 
 	public String getVnum() {
@@ -47,12 +60,20 @@ public class MemberVO {
 		this.vname = vname;
 	}
 
-	public String getVemall() {
-		return vemall;
+	public String getVemail() {
+		return vemail;
 	}
 
-	public void setVemall(String vemall) {
-		this.vemall = vemall;
+	public void setVemail(String vemail) {
+		this.vemail = vemail;
+	}
+
+	public String getVemail2() {
+		return vemail2;
+	}
+
+	public void setVemail2(String vemail2) {
+		this.vemail2 = vemail2;
 	}
 
 	public String getVpw() {
@@ -69,6 +90,14 @@ public class MemberVO {
 
 	public void setVaddr(String vaddr) {
 		this.vaddr = vaddr;
+	}
+
+	public String getVaddr2() {
+		return vaddr2;
+	}
+
+	public void setVaddr2(String vaddr2) {
+		this.vaddr2 = vaddr2;
 	}
 
 	public String getVph() {
@@ -118,6 +147,29 @@ public class MemberVO {
 	public void setVdeleteyn(String vdeleteyn) {
 		this.vdeleteyn = vdeleteyn;
 	}
-	
-	
+
+	public String getVimg() {
+		return vimg;
+	}
+
+	public void setVimg(String vimg) {
+		this.vimg = vimg;
+	}
+
+	public int getVauthority() {
+		return vauthority;
+	}
+
+	public void setVauthority(int vauthority) {
+		this.vauthority = vauthority;
+	}
+
+	public MultipartFile getVfile() {
+		return vfile;
+	}
+
+	public void setVfile(MultipartFile vfile) {
+		this.vfile = vfile;
+	}
+
 }

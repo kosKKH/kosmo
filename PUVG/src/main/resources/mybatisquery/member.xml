@@ -4,6 +4,54 @@
           
 <mapper namespace="main.puvg.member.dao.MemberDAO">
 	<select id="MemberSelect" parameterType ="membervo" resultType="membervo">
-		
+	SELECT A.VNUM VNUM
+        ,A.VNAME VNAME
+        ,A.VEMAIL VEMAIL
+        ,A.VEMAIL2 VEMAIL2
+        ,A.VADDR VADDR
+        ,A.VADDR2 VADDR2
+        ,A.VPH VPH
+        ,A.VDEPT VDEPT
+        ,A.VRANK VRANK
+        ,A.VBIRTH VBIRTH
+        ,TO_CHAR(TO_DATE(A.VHIREDATE), 'YYYY-MM-DD') VHIREDATE
+        ,A.VDELETEYN VDELETEYN
+        ,A.VIMG VIMG
+	FROM PUVG_MEMBER A
+	WHERE A.VNUM = #{vnum}
 	</select>
+	
+	<insert id="MemberInsert" parameterType ="membervo">
+	INSERT INTO PUVG_MEMBER ( VNUM
+                        ,VNAME
+                        ,VEMAIL
+                        ,VEMAIL2
+                        ,VPW
+                        ,VADDR
+                        ,VADDR2
+                        ,VPH
+                        ,VDEPT
+                        ,VRANK
+                        ,VBIRTH
+                        ,VHIREDATE
+                        ,VDELETEYN
+                        ,VIMG
+                        ,VAUTHORITY )
+                VALUES ( #{vnum}
+                        ,#{vname}
+                        ,#{vemail}
+                        ,#{vemail2}
+                        ,#{vpw}
+                        ,#{vaddr}
+                        ,#{vaddr2}
+                        ,#{vph}
+                        ,#{vdept}
+                        ,#{vrank}
+                        ,#{vbirth}
+                        ,#{vhiredate}
+                        ,#{vdeleteyn}
+                        ,#{vimg}
+                        ,#{vauthority})
+	</insert>
+
 </mapper>

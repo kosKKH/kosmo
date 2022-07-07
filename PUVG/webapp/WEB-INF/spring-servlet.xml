@@ -24,8 +24,12 @@
 		<property name="suffix" value=".jsp"></property>
 	</beans:bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="5242880" />
+	</bean>
+	
 	<context:component-scan base-package="main"/>
 	
-	<import resource="servlet-context.xml"/>
 	
 </beans:beans>

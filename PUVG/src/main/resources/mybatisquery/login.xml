@@ -7,6 +7,7 @@
 		SELECT A.VNUM VNUM
 		        ,A.VPW VPW
 		       	,A.VNAME VNAME
+		       	,A.VAUTHORITY VAUTHORITY
 		FROM PUVG_MEMBER A
 		WHERE A.VDELETEYN = '근무'
 		AND A.VNUM = #{vnum}

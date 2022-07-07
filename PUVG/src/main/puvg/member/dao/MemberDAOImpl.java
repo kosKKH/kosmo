@@ -14,7 +14,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Autowired(required=false)
 	private SqlSession sqlSession;
 	
-	public List<MemberVO> MemberSelect(List<MemberVO> mvo){
+	public List<MemberVO> MemberSelect(MemberVO mvo){
 		return sqlSession.selectList("MemberSelect", mvo);
+	}
+	
+	public int MemberInsert(MemberVO mvo) {
+		return (Integer)sqlSession.insert("MemberInsert", mvo);
 	}
 }
