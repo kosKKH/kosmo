@@ -20,12 +20,18 @@ public class MemberVO {
 	private int vauthority;
 	private MultipartFile vfile;
 	
+	private String nowpage;
+	private String totalcount;
+	
 	public MemberVO() {
 	}
 
-	public MemberVO(String vnum, String vname, String vemail, String vemail2, String vpw, String vaddr, String vaddr2, String vph,
-			String vdept, String vrank, String vbirth, String vhiredate, String vdeleteyn, String vimg,
-			int vauthority, MultipartFile vfile) {
+	
+
+	public MemberVO(String vnum, String vname, String vemail, String vemail2, String vpw, String vaddr, String vaddr2,
+			String vph, String vdept, String vrank, String vbirth, String vhiredate, String vdeleteyn, String vimg,
+			int vauthority, MultipartFile vfile, String nowpage, String totalcount) {
+		super();
 		this.vnum = vnum;
 		this.vname = vname;
 		this.vemail = vemail;
@@ -42,7 +48,11 @@ public class MemberVO {
 		this.vimg = vimg;
 		this.vauthority = vauthority;
 		this.vfile = vfile;
+		this.nowpage = nowpage;
+		this.totalcount = totalcount;
 	}
+
+
 
 	public String getVnum() {
 		return vnum;
@@ -170,6 +180,22 @@ public class MemberVO {
 
 	public void setVfile(MultipartFile vfile) {
 		this.vfile = vfile;
+	}
+
+	public String getNowpage() {
+		return nowpage;
+	}
+
+	public void setNowpage(String nowpage) {
+		this.nowpage = nowpage;
+	}
+
+	public String getTotalcount() {
+		return totalcount;
+	}
+
+	public void setTotalcount(String totalcount) {
+		this.totalcount = totalcount;
 	}
 
 }

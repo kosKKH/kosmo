@@ -49,11 +49,28 @@ public class LoginController {
 			
 			HttpSession Session = request.getSession(true);
 			Session.setAttribute("VID", (loginlist.get(0)).getVnum());
-			Session.setAttribute("VNAME",(loginlist.get(0)).getVname());
-			Session.setAttribute("VAUTHORITY",(loginlist.get(0)).getVauthority());
+			Session.setAttribute("VNAME", (loginlist.get(0)).getVname());
+			Session.setAttribute("VDEPT", (loginlist.get(0)).getVdept());
+			Session.setAttribute("VAUTHORITY", (loginlist.get(0)).getVauthority());
 			logger.info("Session 생성 = " +Session);
 			
 			mav.addObject("loginlist", loginlist);
+			return "success";
+		}
+	}
+	
+	@PostMapping(value="pwcheck")
+	public String pwCheck(HttpServletRequest request, MemberVO mvo) {
+		logger.info("LoginController.pwCheck() 진입");
+		List<MemberVO> loginlist = loginService.LoginCheck(mvo);
+		mav.setViewName("main/LoginPage");
+		
+		
+		if (loginlist.size() == 0) {
+			logger.info("비밀번호 불일치");
+			return "fail";
+		} else {
+			logger.info("비밀번호 일치");
 			return "success";
 		}
 	}

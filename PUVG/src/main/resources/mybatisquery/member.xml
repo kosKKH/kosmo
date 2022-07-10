@@ -54,4 +54,31 @@
                         ,#{vauthority})
 	</insert>
 
+	<select id="MemberSelectAll" resultType="membervo">
+	SELECT * FROM (	
+			SELECT A.VNUM VNUM
+		        ,A.VNAME VNAME
+		        ,A.VEMAIL VEMAIL
+		        ,A.VEMAIL2 VEMAIL2
+		        ,A.VADDR VADDR
+		        ,A.VADDR2 VADDR2
+		        ,A.VPH VPH
+		        ,A.VDEPT VDEPT
+		        ,A.VRANK VRANK
+		        ,A.VBIRTH VBIRTH
+		        ,TO_CHAR(TO_DATE(A.VHIREDATE), 'YYYY-MM-DD') VHIREDATE
+		        ,A.VDELETEYN VDELETEYN
+		        ,A.VIMG VIMG
+		        ,A.VAUTHORITY VAUTHORITY
+		        ,CEIL(ROW_NUMBER() OVER(ORDER BY A.VNUM DESC)/ 15 ) NOWPAGE
+				,COUNT(A.VNUM) OVER() AS totalCount
+			FROM PUVG_MEMBER A )
+	WHERE NOWPAGE = #{nowpage}
+	</select>
+	
+	<update id="MemberUpdatepw" parameterType ="membervo">
+	UPDATE PUVG_MEMBER 
+	SET VPW = #{vpw} 
+	WHERE VNUM = #{vnum}
+	</update>
 </mapper>

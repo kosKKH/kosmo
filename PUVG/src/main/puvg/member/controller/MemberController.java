@@ -77,4 +77,50 @@ public class MemberController {
 		}
 		return mav;
 	}
+	
+	@GetMapping(value="memberSelectAll")
+	public ModelAndView memberSelectAll(MemberVO mvo) {
+		logger.info("MemberController.memberSelectAll() 진입");
+		mav.setViewName("member/MemberSelectAll");
+		
+		
+		List<MemberVO> selectall = memberService.MemberSelectAll(mvo);	
+		mav.addObject("selectall", selectall);
+		
+		return mav;
+	}
+	
+	@GetMapping(value="updatePassWord")
+	public ModelAndView updatePassWord() {
+		logger.info("MemberController.updatePassWord() 진입");
+		mav.setViewName("member/Update_pw_Popup");
+		return mav;
+	}
+	
+	@GetMapping(value="changePassWord")
+	public ModelAndView changePassWord() {
+		logger.info("MemberController.changePassWord() 진입");
+		mav.setViewName("member/Update_pw");
+		return mav;
+	}
+	
+	@PostMapping(value="UpdatePassWord")
+	public String UpdatePassWord(HttpServletRequest request,@ModelAttribute MemberVO mvo) {
+		logger.info("MemberController.UpdatePassWord() 진입");
+		
+		HttpSession Session = request.getSession(false);
+		String VNUM= (String)Session.getAttribute("VID");
+		mvo.setVnum(VNUM);
+		mvo.setVpw(request.getParameter("vpw"));
+		
+		logger.info(mvo.getVnum());
+		logger.info(mvo.getVpw());
+		int updatepw = memberService.MemberUpdatepw(mvo);
+		if(updatepw == 1) {
+			logger.info("업데이트 완료");
+			return "success";
+		}
+		logger.info("업데이트 실패");
+		return "fail";
+	}
 }

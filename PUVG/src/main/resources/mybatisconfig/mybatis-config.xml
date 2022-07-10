@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
-		  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<typeAliases>
-		<typeAlias type="main.puvg.member.vo.MemberVO" alias="membervo"/>
-	</typeAliases>
-</configuration>
+   <typeAliases>
+      <typeAlias type="main.puvg.member.vo.MemberVO" alias="membervo"/>
+      <typeAlias type="main.puvg.approval.vo.Appr1DocVO" alias="appr1docvo"/>
+      <typeAlias type="main.puvg.approval.vo.Appr2DocVO" alias="appr2docvo"/>
+      <typeAlias type="main.puvg.approval.vo.Appr3DocVO" alias="appr3docvo"/>
+      <typeAlias type="main.puvg.approval.vo.Appr4DocVO" alias="appr4docvo"/>
+      <typeAlias type="main.puvg.approval.vo.ApprovalLineVO" alias="approvallinevo"/>
+      <typeAlias type="main.puvg.approval.vo.ApprovalListVO" alias="approvallistvo"/>
+      <typeAlias type="main.puvg.approval.vo.ApprovalTempVO" alias="approvaltempvo"/>
+   </typeAliases>
+</configuration>	

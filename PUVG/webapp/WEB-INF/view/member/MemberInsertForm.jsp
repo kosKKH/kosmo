@@ -8,7 +8,7 @@
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/DefaultSetting.css" rel="stylesheet" type="text/css"/> 
+		<link href="css/MemberInsertForm.css" rel="stylesheet" type="text/css"/> 
 		<script type="text/javascript">
 		<%
 			HttpSession Session = request.getSession(false);
@@ -70,6 +70,7 @@
 				} else if($("#vfile").val() == null || $("#vfile").val() == ""){
 					alert("사진이 등록되지 않았습니다.")
 				} else {
+					alert("정보를 입력합니다. 초기 비밀번호는 사원의 생년월일 8자리 입니다.");
 					$("#member_insert_form").attr({
 						"action":"memberInsert.puvg",
 						"method":"POST"
@@ -106,6 +107,7 @@
 				</div>
 			</div>
 			<form id="member_insert_form" name="member_insert_form" enctype="multipart/form-data">
+			<div style="margin-left:20px;">
 			<div class="member_info">
 				<font size="2" color="#c0c0c0">이름 :</font><br>
 				<input type="text" id="vname" name="vname" class="insert_bar"/>
@@ -155,11 +157,13 @@
 				<font size="2" color="#c0c0c0">사진 : </font>
 				<input type="file" id="vfile" name="vfile" accept="image/*" onchange="preview(this)"/><br>
 			</div>
+			</div>
 			</form>
+			<div class="button_box">
+				<input type="button" id="member_insert" name="member_insert" value="사원등록"/>
+			</div>
 		</div>
-		<div class="button_box">
-			<input type="button" id="member_insert" name="member_insert" value="사원등록"/>
-		</div>
+		
 		
 	</body>
 </html>

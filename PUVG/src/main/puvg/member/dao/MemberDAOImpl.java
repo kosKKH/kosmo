@@ -21,4 +21,12 @@ public class MemberDAOImpl implements MemberDAO {
 	public int MemberInsert(MemberVO mvo) {
 		return (Integer)sqlSession.insert("MemberInsert", mvo);
 	}
+	
+	public List<MemberVO> MemberSelectAll(MemberVO mvo) {
+		return sqlSession.selectList("MemberSelectAll", mvo);
+	}
+	
+	public int MemberUpdatepw(MemberVO mvo) {
+		return (Integer)sqlSession.update("MemberUpdatepw", mvo);
+	}
 }

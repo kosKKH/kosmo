@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+body{
+	margin:0;
+}
+
+.main_container {
+	width : 1200px;
+	height : 100%;
+	padding : 50px;
+	margin-left : 300px;
+}
+
+#member_photo {
+	width : 300px;
+	height : 400px;
+	float : left;
+	border : 1px solid;
+	display: table;
+	text-align : center;
+	margin-top : 20px;
+}
+
+#photo_box {
+	display:table-cell;
+    vertical-align:middle;
+
+}
+
+#photo {
+	max-width:300px;
+    max-height:400px;
+}
+
+#select_div {
+	width: 860px;
+	float:left;
+	margin-left : 20px;
+	
+}
+
+.member_info{
+	font-size : 20px;
+}
+
+.button_div {
+	text-align : right;
+}

@@ -28,5 +28,14 @@ public class MemberServiceImpl implements MemberService {
 		logger.info("MemberServiceImpl.MemberInsert() 진입");
 		return memberDAO.MemberInsert(mvo);
 	}
+	
+	public List<MemberVO> MemberSelectAll(MemberVO mvo) {
+		logger.info("MemberServiceImpl.MemberSelectAll() 진입");
+		return memberDAO.MemberSelectAll(mvo);
+	}
 
+	public int MemberUpdatepw(MemberVO mvo) {
+		logger.info("MemberServiceImpl.MemberUpdatepw() 진입");
+		return memberDAO.MemberUpdatepw(mvo);
+	}
 }
