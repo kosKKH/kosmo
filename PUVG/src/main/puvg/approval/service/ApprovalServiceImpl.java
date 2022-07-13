@@ -145,4 +145,27 @@ public class ApprovalServiceImpl implements ApprovalService {
 		
 	}
 
+	@Override
+	public int ApprovalTempUpdate(Appr1DocVO amvo) {
+		
+		logger.info("ApprovalServiceImpl ApprovalTempSelect() 함수 진입");
+		return approvalDAO.ApprovalTempUpdate(amvo);
+	}
+	
+	@Override
+	public List<Appr1DocVO> ApprovalListAcceptAll(Appr1DocVO amvo) {
+		
+		logger.info("ApprovalServiceImpl ApprovalListAcceptAll() 함수 진입");
+		return approvalDAO.ApprovalListAcceptAll(amvo);
+		
+	}
+	
+	@Override
+	public List<Appr1DocVO> ApprovalAcceptSelect(Appr1DocVO amvo) {
+		
+		logger.info("ApprovalServiceImpl ApprovalAcceptSelect() 함수 진입");
+		return approvalDAO.ApprovalAcceptSelect(amvo);
+		
+	}
+
 }

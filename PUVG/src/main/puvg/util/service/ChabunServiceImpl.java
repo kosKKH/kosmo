@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import main.puvg.approval.vo.Appr1DocVO;
+import main.puvg.approval.vo.ApprovalListVO;
+import main.puvg.approval.vo.ApprovalTempVO;
 import main.puvg.member.vo.MemberVO;
 import main.puvg.util.dao.ChabunDAO;
 
@@ -20,5 +23,17 @@ public class ChabunServiceImpl implements ChabunService {
 	public MemberVO getMemberChabun() {
 		logger.info("ChabunServiceImpl.getMemberChabun() 진입");
 		return chabunDAO.getMemberChabun();
+	}
+
+	@Override
+	public Appr1DocVO getApprovalChabun() {
+		logger.info("ChabunServiceImpl.getApprovalChabun() 진입");
+		return chabunDAO.getApprovalChabun();
+	}
+
+	@Override
+	public ApprovalTempVO getApprovalTempChabun() {
+		logger.info("ChabunServiceImpl.getApprovalTempChabun() 진입");
+		return chabunDAO.getApprovalTempChabun();
 	}
 }

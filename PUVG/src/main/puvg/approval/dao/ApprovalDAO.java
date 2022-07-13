@@ -40,7 +40,10 @@ public interface ApprovalDAO {
 	public int ApprovalTempInsert(ApprovalTempVO amvo);
 	public List<ApprovalTempVO> ApprovalTempSelectAll(ApprovalTempVO amvo);
 	public List<ApprovalTempVO> ApprovalTempSelect(ApprovalTempVO amvo);
+	public int ApprovalTempUpdate(Appr1DocVO amvo);
 	
 	// 결재파일보기
+	public List<Appr1DocVO> ApprovalListAcceptAll(Appr1DocVO amvo);
+	public List<Appr1DocVO> ApprovalAcceptSelect(Appr1DocVO amvo);
 
 }

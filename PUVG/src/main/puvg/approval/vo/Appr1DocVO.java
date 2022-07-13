@@ -8,10 +8,11 @@ public class Appr1DocVO {
 	private String vname;
 	private String vsubj;
 	private String vlinecode;
-	private String vitem;
-	private String vitemname;
-	private String vunit;
-	private String vquantity;
+	private String vtype;
+	private String vstart;
+	private String vend;
+	private String vdate;
+	private String vleft;
 	private String vline;
 	private String vfile;
 	private String deleteyn;
@@ -22,18 +23,19 @@ public class Appr1DocVO {
 	}
 	
 	public Appr1DocVO(String vdocnum, String vdept, String vnum, String vname, String vsubj, String vlinecode,
-			String vitem, String vitemname, String vunit, String vquantity, String vline, String vfile, String deleteyn,
-			String insertdate, String updatedate) {
+			String vtype, String vstart, String vend, String vdate, String vleft, String vline, String vfile,
+			String deleteyn, String insertdate, String updatedate) {
 		this.vdocnum = vdocnum;
 		this.vdept = vdept;
 		this.vnum = vnum;
 		this.vname = vname;
 		this.vsubj = vsubj;
 		this.vlinecode = vlinecode;
-		this.vitem = vitem;
-		this.vitemname = vitemname;
-		this.vunit = vunit;
-		this.vquantity = vquantity;
+		this.vtype = vtype;
+		this.vstart = vstart;
+		this.vend = vend;
+		this.vdate = vdate;
+		this.vleft = vleft;
 		this.vline = vline;
 		this.vfile = vfile;
 		this.deleteyn = deleteyn;
@@ -77,29 +79,35 @@ public class Appr1DocVO {
 	public void setVlinecode(String vlinecode) {
 		this.vlinecode = vlinecode;
 	}
-	public String getVitem() {
-		return vitem;
+	public String getVtype() {
+		return vtype;
 	}
-	public void setVitem(String vitem) {
-		this.vitem = vitem;
+	public void setVtype(String vtype) {
+		this.vtype = vtype;
 	}
-	public String getVitemname() {
-		return vitemname;
+	public String getVstart() {
+		return vstart;
 	}
-	public void setVitemname(String vitemname) {
-		this.vitemname = vitemname;
+	public void setVstart(String vstart) {
+		this.vstart = vstart;
 	}
-	public String getVunit() {
-		return vunit;
+	public String getVend() {
+		return vend;
 	}
-	public void setVunit(String vunit) {
-		this.vunit = vunit;
+	public void setVend(String vend) {
+		this.vend = vend;
 	}
-	public String getVquantity() {
-		return vquantity;
+	public String getVdate() {
+		return vdate;
 	}
-	public void setVquantity(String vquantity) {
-		this.vquantity = vquantity;
+	public void setVdate(String vdate) {
+		this.vdate = vdate;
+	}
+	public String getVleft() {
+		return vleft;
+	}
+	public void setVleft(String vleft) {
+		this.vleft = vleft;
 	}
 	public String getVline() {
 		return vline;
@@ -131,4 +139,6 @@ public class Appr1DocVO {
 	public void setUpdatedate(String updatedate) {
 		this.updatedate = updatedate;
 	}
+	
+	
 }

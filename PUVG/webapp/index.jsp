@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-	location.href = "loginpage.puvg";
+	location.href = "ApprovalListSelectAll.puvg";
 	</script>
 </body>
 </html>

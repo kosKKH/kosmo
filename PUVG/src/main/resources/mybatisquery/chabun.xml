@@ -6,4 +6,12 @@
 	<select id="getMemberChabun" resultType="membervo">
 		SELECT NVL(MAX(SUBSTR(A.VNUM, -4)), 0) + 1 AS VNUM FROM PUVG_MEMBER A
 	</select>
+	
+	<select id="getApprovalChabun" resultType="appr1docvo">
+		SELECT NVL(MAX(SUBSTR(A.VDOCNUM, -4)), 0) + 1 AS VDOCNUM FROM APPR1_DOC A
+	</select>
+	
+	<select id="getApprovalTempChabun" resultType="approvaltempvo">
+		SELECT NVL(MAX(SUBSTR(A.VSUBNUM, -4)), 0) + 1 AS VSUBNUM FROM APPROVAL_TEMP A
+	</select>
 </mapper>

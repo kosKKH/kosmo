@@ -50,14 +50,14 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 	public List<Appr1DocVO> Appr1DocSelect(Appr1DocVO amvo) {
 		logger.info("ApprovalDAOImpl Appr1DocSelect() 함수 진입");
 		
-		return sqlSession.selectOne("ApprovalListSelectAll", amvo);
+		return sqlSession.selectOne("Appr1DocSelect", amvo);
 	}
 
 	@Override
 	public int Appr2DocInsert(Appr2DocVO amvo) {
 		logger.info("ApprovalDAOImpl Appr1DocInsert() 함수 진입");
 		
-		return sqlSession.insert("Appr1DocInsert", amvo);
+		return sqlSession.insert("Appr2DocInsert", amvo);
 	}
 
 	@Override
@@ -128,6 +128,27 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 		logger.info("ApprovalDAOImpl ApprovalTempSelect() 함수 진입");
 		
 		return sqlSession.selectOne("ApprovalTempSelect", amvo);
+	}
+
+	@Override
+	public int ApprovalTempUpdate(Appr1DocVO amvo) {
+		logger.info("ApprovalDAOImpl ApprovalTempUpdate() 함수 진입");
+		
+		return (Integer)sqlSession.insert("ApprovalTempUpdate", amvo);
+	}
+
+	@Override
+	public List<Appr1DocVO> ApprovalListAcceptAll(Appr1DocVO amvo) {
+		logger.info("ApprovalDAOImpl ApprovalListAcceptAll() 함수 진입");
+		
+		return sqlSession.selectOne("ApprovalListAcceptAll", amvo);
+	}
+
+	@Override
+	public List<Appr1DocVO> ApprovalAcceptSelect(Appr1DocVO amvo) {
+		logger.info("ApprovalDAOImpl ApprovalAcceptSelect() 함수 진입");
+		
+		return sqlSession.selectOne("ApprovalAcceptSelect", amvo);
 	}
 
 }

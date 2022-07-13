@@ -1,104 +1,159 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@page import="main.puvg.member.vo.MemberVO"%>  
 <%@page import="java.util.List"%> 
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link href="css/LeftSidebar.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript">
+
+$(document).ready(function(){
 	
-		$(document).ready(function(){
-			$(".menus").click(function(){
-				$(this).children(".submenu").stop().slideDown();
-			});
-			$(".menus").mouseleave(function(){
-				$(this).children(".submenu").stop().slideUp();
-			});
-		});
+	var tabcheck = $("#tabCheck").val();
+	$(".tabSpan1").click(function(){
+		if(tabcheck=="N"){
+			tabcheck = "Y";
+			setTimeout(function(){
+			$("#myImfo").css({"transform":"translateY(0)"});	
+			}, 100);
+			setTimeout(function(){
+			$("#logOut").css({"transform":"translateY(0)"});	
+			}, 200);
+		}else if(tabcheck=="Y"){
+			tabcheck = "N";
+			setTimeout(function(){
+			$("#myImfo").css({"transform":"translateY(-150%)"});	
+			}, 100);
+			setTimeout(function(){
+			$("#logOut").css({"transform":"translateY(-150%)"});	
+			}, 200);
+		}
+	});
+	
+	$("#myImfo").click(function(){
+		location.href="memberSelect.puvg";
+	});
+	
+	$("#logOut").click(function(){
+		if (!confirm("로그아웃 하시겠습니까?")) {
+		} else {
+			location.href="logout.puvg";
+		}
+	});
+	
+	//==================================================================
 		
-	</script>
-	</head>
-	<body>
-	<header>
-		<div id="tops" class="tops">
-		<%
-			HttpSession Session = request.getSession(false);
-			String VNAME = (String)Session.getAttribute("VNAME");
-		%>
-			<div id="top_bar_weather">
-			
-			</div>
-			<div id="top_bar_login">
-				<font size="2"><%= VNAME %>님 안녕하세요!</font>
-			</div>
-			<a href="memberSelect.puvg"><font size="2">내 정보</font></a>
-			<a href="logout.puvg"><font size="2">로그아웃</font></a>
+	$("#menuBoard").click(function(){
+		$(".menuSmall2").css({"height":"70px"});
+		$(".menuSmall1").css({"height":"0px"});
+		$(".menuSmall3").css({"height":"0px"});
+		$(".menuSmall4").css({"height":"0px"});
+		$(".menuSmall5").css({"height":"0px"});
+	});
+	
+	$("#menuMEM").click(function(){
+		$(".menuSmall3").css({"height":"140px"});
+		$(".menuSmall1").css({"height":"0px"});
+		$(".menuSmall2").css({"height":"0px"});
+		$(".menuSmall4").css({"height":"0px"});
+		$(".menuSmall5").css({"height":"0px"});
+	});
+	
+	$("#menuApproval").click(function(){
+		$(".menuSmall1").css({"height":"110px"});
+		$(".menuSmall2").css({"height":"0px"});
+		$(".menuSmall3").css({"height":"0px"});
+		$(".menuSmall4").css({"height":"0px"});
+		$(".menuSmall5").css({"height":"0px"});
+	});
+	
+	$("#menuSchedule").click(function(){
+		$(".menuSmall4").css({"height":"70px"});
+		$(".menuSmall1").css({"height":"0px"});
+		$(".menuSmall2").css({"height":"0px"});
+		$(".menuSmall3").css({"height":"0px"});
+		$(".menuSmall5").css({"height":"0px"});
+	});
+	
+	$("#menuCompany").click(function(){
+		$(".menuSmall5").css({"height":"110px"});
+		$(".menuSmall1").css({"height":"0px"});
+		$(".menuSmall2").css({"height":"0px"});
+		$(".menuSmall3").css({"height":"0px"});
+		$(".menuSmall4").css({"height":"0px"});
+	});
+});
+</script>
+
+</head>
+<body>
+
+
+<div id="tab" class="tabDiv1">
+	<%
+		HttpSession Session = request.getSession(false);
+		String VNAME = (String)Session.getAttribute("VNAME");
+	%>
+</div>
+<div class="tabDiv2"><span class="tabSpan1"><%= VNAME %></span>님, 안녕하세요!
+	<div class="tabDiv3">
+	<input type="hidden" id="tabCheck" value="N"/>
+		<button type="button" id="myImfo" class="tabBtn1">내 정보 보기</button>
+		<button type="button" id="logOut" class="tabBtn1">로그아웃</button>
+	</div>
+</div>
+
+<div class="menu">
+	<div class="menu_img">
+		<a href="mainpage.puvg"><img src="/PUVG/css/icons/logo.png" class="menuImg"/></a>
+	</div>
+	<div class="menuCategory">
+		<div id="menuMEM" class="menuBig">개인정보 관리</div>
+		<div class="menuSmall3">
+			<a href="memberSelectWork.puvg?&nowpage=1" class="menuA">- 전체사원 보기</a><br>
+			<a href="memberSelect.puvg" class="menuA">- 내 정보</a><br>
+			<a href="memberInsertForm.puvg" class="menuA">- 사원 등록</a><br>
+			<a href="memberSelectAll.puvg?&nowpage=1" class="menuA">- 사원 관리</a>
 		</div>
-	</header>
-		<div id="menu" class="menu">
-			<div class="logo" style="align-items: center; display: flex; justify-content: center;">
-				<a href="mainpage.puvg" style="text-align:center;"><img Class="img" src="/PUVG/css/icons/logo.png" style="width: 60%; height: 80%; align:center;"/></a>
-			</div>
-			<label for="expand-menu"><div>&nbsp;&nbsp;&nbsp;&nbsp;메뉴</div></label>
-			 <input type="checkbox" id="expand-menu" name="expand-menu">
-			 <ul id = "nav-v1">
-			   <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;일정관리</div></span>
-		        	<ul class="submenu">
-		        		<li>결재1</li>
-		        		<li>결재2</li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-		       <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;웹저장소</div></span>
-		        	<ul class="submenu">
-		        		<li>결재1</li>
-		        		<li>결재2</li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-		        <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;소통게시판</div></span>
-		        	<ul class="submenu">
-		        		<li>결재1</li>
-		        		<li>결재2</li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-		        <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;결재문서</div></span>
-		        	<ul class="submenu">
-		        		<li>결재1</li>
-		        		<li>결재2</li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-		        <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;이메일</div></span>
-		        	<ul class="submenu">
-		        		<li>결재1</li>
-		        		<li>결재2</li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-			   <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;즐겨찾기</div></span>
-		        	<ul class="submenu">
-		        		<li>결재1</li>
-		        		<li>결재2</li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-		        <li class = "menus"><span class="item"><div>&nbsp;&nbsp;&nbsp;&nbsp;사원관리</div></span>
-		        	<ul class="submenu">
-		        		<li><a href="memberInsertForm.puvg">사원 등록</a></li>
-		        		<li><a href="memberSelectAll.puvg?&nowpage=1">사원 관리</a></li>
-		        		<li>결재3</li>
-		        	</ul>
-		        </li>
-             </ul>
+	
+		<div id="menuApproval" class="menuBig">전자결재</div>
+		<div class="menuSmall1">
+			<a href="#" class="menuA">- 결재양식</a><br>
+			<a href="#" class="menuA">- 상신함</a><br>
+			<a href="#" class="menuA">- 후열함</a>
+		</div>
+		<div id="menuBoard" class="menuBig">게시판</div>
+		<div class="menuSmall2">
+			<a href="#" class="menuA">- 전체공지</a><br>
+			<a href="#" class="menuA">- 부서게시판</a>
+		</div>
+		<div id="menuSchedule" class="menuBig">일정관리</div>
+		<div class="menuSmall4">
+			<a href="#" class="menuA">- 일정 달력</a><br>
+			<a href="#" class="menuA">- 일정 게시판</a><br>
+		</div>
+		<div id="menuCompany" class="menuBig">회사</div>
+		<div class="menuSmall5">
+			<a href="#" class="menuA">- 회사 소개</a><br>
+			<a href="#" class="menuA">- 회사 내부</a><br>
+			<a href="#" class="menuA">- 오시는 길</a><br>
 		</div>
 		
-	</body>
+	</div>
+	
+	
+
+</div>
+</body>
 </html>
