@@ -24,7 +24,7 @@
 		
 		%>
 		$(document).ready(function(){
-			$("#addr_btn").on("click",function(){
+			$("#add_code").on("click",function(){ // 여기 우편번호 누르면 바로 창이 뜨도록 수정함. -- 2022.07.11 황신애
 				new daum.Postcode({
 					oncomplete: function(data) {
 					    $("#add_code").val(data.zonecode); //5자리 새우편번호 사용
@@ -95,75 +95,74 @@
 		
 	
 		</script>
-	</head>
-	<body>
-		<div>
-			<jsp:include page ="../sidebar/LeftSidebar.jsp" flush ="true"/>
-		</div>
-		<div class="main_container">
-			<div id="member_photo">
-				<div id="photo_box">
-					<img id="photo"/>
+</head>
+<body>
+<div>
+	<jsp:include page ="../sidebar/LeftSidebar.jsp" flush ="true"/>
+</div>
+<div class="MemInsertDiv1">
+<form id="member_insert_form" name="member_insert_form" enctype="multipart/form-data">
+	<table class="MemInsertTable1" >
+		<tr>
+			<td class=MemInsertTD0>
+				<div class="MemInsertDiv3">
+				<img id="photo"/>
 				</div>
-			</div>
-			<form id="member_insert_form" name="member_insert_form" enctype="multipart/form-data">
-			<div style="margin-left:20px;">
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">이름 :</font><br>
-				<input type="text" id="vname" name="vname" class="insert_bar"/>
-			</div>
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">생년월일 : (YYYYMMDD)</font><br>
-				<input type="text" id="vbirth" name="vbirth" class="insert_bar" placeholder="(yyyymmdd)" maxlength="8"/>
-			</div>
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">전화번호 : ###-####-####</font><br>
-				<input type="text" id="vph" name="vph" class="insert_bar" placeholder="###-####-####" maxlength="13"/>
-			</div>
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">주소 :</font><br>
-				<input type="text" id="add_code" name="add_code" class="insert_bar" style="width:100px;" readonly/>
-				<input type="button" id="addr_btn" name="addr_btn" value="우편번호 검색" style="align:right;"><br>
-				<font size="2" color="#c0c0c0">주소 상세 :</font><br>
-				<input type="text" id="vaddr" name="vaddr" class="insert_bar" style="margin-bottom:2px" readonly/>
-				<input type="text" id="vaddr2" name="vaddr2" class="insert_bar" maxlength="30"/>
-			</div>
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">이메일 : </font><br>
-				<input type="text" id="vemail" name="vemail" class="insert_bar" style="width:200px" maxlength="20"/> @
-				<input type="text" id="vemail2" name="vemail2" class="insert_bar" style="width:200px" maxlength="20"/>
-				<select id="vemail3" name="vemail3">
-					<option value="1" selected>직접입력</option>
-			       	<option value="naver.com">naver.com</option>	       	   
-			      	<option value="gmail.com">gmail.com</option>
-			      	<option value="daum.net">daum.net</option>	
-				</select>
-			</div>
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">입사날짜 : (YYYYMMDD)</font><br>
-				<input type="text" id="vhiredate" name="vhiredate" class="insert_bar" placeholder="(yyyymmdd)" maxlength="8"/>
-			</div>
-			<div class="member_info" style="height:52px">
-				<div style="width:300px; height:100%; float:left;">
-					<font size="2" color="#c0c0c0">부서 :</font><br>
-					<input type="text" id="vdept" name="vdept" class="insert_bar" style="width:290px" maxlength="10"/>
-				</div>
-				<div style="width:300px; height:100%; float:left; margin-left:10px;">
-					<font size="2" color="#c0c0c0">직책 :</font><br>
-					<input type="text" id="vrank" name="vrank" class="insert_bar" style="width:290px" maxlength="10"/>
-				</div>
-			</div>
-			<div class="member_info">
-				<font size="2" color="#c0c0c0">사진 : </font>
-				<input type="file" id="vfile" name="vfile" accept="image/*" onchange="preview(this)"/><br>
-			</div>
-			</div>
-			</form>
-			<div class="button_box">
-				<input type="button" id="member_insert" name="member_insert" value="사원등록"/>
-			</div>
-		</div>
-		
-		
-	</body>
+			</td>
+		<tr>
+			<td class="MemInsertTD1"><span class="MemInsertSpan1"></span><br><br>
+				<input type="file" id="vfile" name="vfile" accept="image/*" onchange="preview(this)" class="fileIMG"/>
+			</td>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2"><input type="text" id="vname" name="vname" class="MemInsertI1" placeholder="이름"/></td>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2"><input type="text" id="vbirth" name="vbirth" class="MemInsertI1" placeholder="생년월일 (yyyymmdd)" maxlength="8"/></td>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2"><input type="text" id="vph" name="vph" class="MemInsertI1" placeholder="전화번호 (###-####-####)" maxlength="13"/></td>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2"><input type="text" id="add_code" name="add_code" class="MemInsertI3" placeholder="우편번호" readonly/><br>
+			<!-- 
+			<button type="button" id="addr_btn" name="addr_btn" class="MemInsertbtn1">우편번호 검색</button></td>
+			 -->
+			<input type="text" id="vaddr" name="vaddr" class="MemInsertI4" placeholder="도로명/지번주소" readonly/><br>
+			<input type="text" id="vaddr2" name="vaddr2" class="MemInsertI4" placeholder="나머지주소" maxlength="30"/><br>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2">
+			<input type="text" id="vemail" name="vemail" class="MemInsertI2"  placeholder="이메일" maxlength="20"/> @
+			<input type="text" id="vemail2" name="vemail2" class="MemInsertI2"  placeholder="주소 직접 입력" maxlength="20"/>
+			<select id="vemail3" name="vemail3" class="MemInsertS1">
+				<option value="1" selected>직접입력</option>
+		       	<option value="naver.com">naver.com</option>	       	   
+		      	<option value="gmail.com">gmail.com</option>
+		      	<option value="daum.net">daum.net</option>	
+			</select></td>
+		</tr>
+	</table>
+	<hr>
+	<table class="MemInsertTable1">
+		<tr>
+			<td class="MemInsertTD2"><input type="text" id="vhiredate" name="vhiredate" class="MemInsertI1" placeholder="입사 날짜(yyyymmdd)" maxlength="8"/></td>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2">
+			<input type="text" id="vdept" name="vdept" class="MemInsertI1" placeholder="부서" maxlength="10"/></td>
+		</tr>
+		<tr>
+			<td class="MemInsertTD2">
+			<input type="text" id="vrank" name="vrank" class="MemInsertI1" placeholder="직책" /></td>
+		</tr>
+	</table>
+</form>
+<div class="MemInsertDiv2">
+	<button type="button" id="member_insert" name="member_insert" class="MemInsertbtn2" >사원 등록하기</button>
+</div>
+</div>
+
+
+</body>
 </html>

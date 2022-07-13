@@ -34,8 +34,50 @@
 		%>
 		$(document).ready(function(){
 			$(document).on("click",".member_info",function(){
-				alert($(this).children('.vnum').text());
+				//alert($(this).children('.tt1').text());
+				let vnum = $(this).children('.tt1').text();	
+				
+				location.href="memberSelectAdmin.puvg?&vnum="+vnum;
 			})
+			/*
+			$(document).on("change","#searchdept",function(){
+				//alert("searchdept =" + $("#searchdept").val());
+				//alert("value = " +$("#searchdept option:checked").text());
+				$("#vdept").val($("#searchdept option:checked").text());
+				$("#search_form").attr({
+					'action':'memberSearchData.puvg',
+					'method':'GET'
+				}).submit();
+			})
+			
+			$(document).on("change","#searchrank",function(){
+				//alert("searchrank =" + $("#searchrank").val());
+				$("#vrank").val($("#searchrank option:checked").text());
+				//alert("vrank = " + $("#vrank").val());
+				$("#search_form").attr({
+					'action':'memberSearchData.puvg',
+					'method':'GET'
+				}).submit();
+			})
+			*/
+			
+			$(document).on("click","#search_btn", function(){
+				$("#vdept").val($("#searchdept option:checked").text());
+				$("#vrank").val($("#searchrank option:checked").text());
+				$("#search_form").attr({
+					'action':'memberSearchData.puvg',
+					'method':'GET'
+				}).submit();
+			})
+			
+			$(document).on("click","#search",function(){
+				if ($("#vname").val() == "" && $("#vname").val() == null){
+					alert("검색할 이름을 입력해주세요.")
+				} else {
+					location.href="memberSearch.puvg?&nowpage=1&vname="+ $("#vname").val();
+				}
+			})
+				
 		})
 		</script>
 	</head>
@@ -46,17 +88,42 @@
 		<div class="main_container">
 			<div id="selectall_div">
 				<div id="member_table">
+					<div id="member_search">
+						<input type="text" id="vname" name="vname" placeholder="검색어가 없을 시 전체 조회됩니다.">
+						<button id="search" name="search">검색</button>
+					</div>
+					<div id="member_select">
+						<form id="search_form" name="search_form">
+							<input type="hidden" id="vdept" name="vdept">
+							<input type="hidden" id="vrank" name="vrank">
+							<select id="searchdept" name="searchdept">
+								<option value="0">부서</option>
+								<option value="1">인사부</option>
+								<option value="2">기술부</option>
+								<option value="3">영업부</option>
+							</select>
+							<select id="searchrank" name="searchrank">
+								<option value="0">직급</option>
+								<option value="1">이사</option>
+								<option value="2">부장</option>
+								<option value="3">팀장</option>
+								<option value="4">신입</option>
+								<option value="5">인턴</option>
+							</select>
+							<button id="search_btn" name="search_btn">검색</button>
+						</form>
+					</div>
 					<div id="top_div">
-						<span class="tt">사원번호</span>
-						<span class="tt">이름</span>
-						<span class="tt">생년월일</span>
-						<span class="tt">나이</span>
-						<span class="tt">부서</span>
-						<span class="tt">직급</span>
-						<span class="tt">고용일</span>
-						<span class="tt">연락처</span>
-						<span class="tt">근무상태</span>
-						<span class="tt">권한</span>
+						<span class="tt tt1">사원번호</span>
+						<span class="tt tt2">이름</span>
+						<span class="tt tt3">생년월일</span>
+						<span class="tt tt4">나이</span>
+						<span class="tt tt5">부서</span>
+						<span class="tt tt6">직급</span>
+						<span class="tt tt7">고용일</span>
+						<span class="tt tt8">연락처</span>
+						<span class="tt tt9">근무상태</span>
+						<span class="tt tt10">권한</span>
 					</div>
 					
 					<%
@@ -72,16 +139,16 @@
 							int age = Integer.parseInt(a) - Integer.parseInt(vage);
 					%>
 						<div class="member_info">
-							<span class="vnum"><%= mvo.getVnum() %></span>
-							<span class="tt"><%= mvo.getVname() %></span>
-							<span class="tt"><%= mvo.getVbirth() %></span>
-							<span class="tt"><%= age %></span>
-							<span class="tt"><%= mvo.getVdept() %></span>
-							<span class="tt"><%= mvo.getVrank() %></span>
-							<span class="tt"><%= mvo.getVhiredate() %></span>
-							<span class="tt"><%= mvo.getVph() %></span>
-							<span class="tt"><%= mvo.getVdeleteyn() %></span>
-							<span class="tt"><%= mvo.getVauthority() %></span>
+							<span class="tt tt1"><%= mvo.getVnum() %></span>
+							<span class="tt tt2"><%= mvo.getVname() %></span>
+							<span class="tt tt3"><%= mvo.getVbirth() %></span>
+							<span class="tt tt4"><%= age %></span>
+							<span class="tt tt5"><%= mvo.getVdept() %></span>
+							<span class="tt tt6"><%= mvo.getVrank() %></span>
+							<span class="tt tt7"><%= mvo.getVhiredate() %></span>
+							<span class="tt tt8"><%= mvo.getVph() %></span>
+							<span class="tt tt9"><%= mvo.getVdeleteyn() %></span>
+							<span class="tt tt10"><%= mvo.getVauthority() %></span>
 						</div>
 					<%
 						}
@@ -141,6 +208,12 @@
 					</td>
 				</tr>
 			</table>
+			<div style="width:100%;">
+				<div style="width:100%; text-align:right;">
+				<a href="memberChart.puvg">인원 현황판</a>
+				</div>
+	
+			</div>
 		</div>
 	</body>
 </html>

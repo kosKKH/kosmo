@@ -13,7 +13,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript">
+		<%
+			HttpSession Session = request.getSession(false);
+			String VNAME = (String)Session.getAttribute("VNAME");
+			int VAUTHORITY = (Integer)Session.getAttribute("VAUTHORITY");
+		%>
 		$(document).ready(function(){
+			if(<%= VAUTHORITY%> == 1) {
+				$("#update").attr("disabled", false);
+			}
+			
+			$(document).on("click","#update", function(){
+				$("#member_update_form").attr({
+					'action':'updateMemberForm.puvg',
+					'method':'GET'
+				}).submit();
+			})
+			
+			
 			$(document).on("click","#update_pw", function(){
 				var update_pw = window.open('updatePassWord.puvg',"",'width=500, height=400, left=500, top=300');		
 			})
@@ -50,11 +67,13 @@
 		%>
 		<div class="main_container">
 			<div id="member_photo">
-				<img src="/PUVG/uploadImg/<%= mvo.getVimg() %>"/>
+				<div id="photo_box">
+					<img id="photo" src="/PUVG/uploadImg/<%= mvo.getVimg() %>"/>
+				</div>
 			</div>
 			<div id="select_div">
 				<div class="button_div">
-					<input type="button" value="정보수정 요청">
+					<input type="button" id="update" name="update" value="정보수정" disabled>
 					<input type="button" id="update_pw" name="update_pw" value="비밀번호 변경">
 				</div>
 				<div class="member_info">
@@ -98,6 +117,9 @@
 					<font size="2" color="#c0c0c0">입사날짜 :</font><br>
 					<%= hiredate %><br>
 				</div>
+				<form id="member_update_form" name="member_update_form">
+				<input type="hidden" id="vnum" name="vnum" value="<%= mvo.getVnum() %>">
+				</form>
 			</div>
 		
 		</div>

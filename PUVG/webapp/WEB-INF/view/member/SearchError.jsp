@@ -8,7 +8,8 @@
 </head>
 <body>
 	<script>
-	location.href = "loginpage.puvg";
+	alert("검색 결과가 없습니다.")
+	history.go(-1);
 	</script>
 </body>
 </html>
