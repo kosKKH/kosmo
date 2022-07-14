@@ -27,6 +27,7 @@
 			VLEFT,
 			VLINE,
 			VFILE,
+			VCHECK,
 			DELETEYN,
 			INSERTDATE,
 			UPDATEDATE
@@ -45,6 +46,7 @@
 			#{vleft, jdbcType=VARCHAR},
 			#{vline, jdbcType=VARCHAR},		
 			#{vfile, jdbcType=VARCHAR},
+			#{vcheck, jdbcType=VARCHAR},
 			'Y',
 			SYSDATE,
 			SYSDATE
@@ -235,6 +237,7 @@
 			VLEFT = #{vleft, jdbcType=VARCHAR},
 			VLINE = #{vline, jdbcType=VARCHAR},
 			VFILE = #{vfile, jdbcType=VARCHAR},
+			VCHECK = #{vchekc, jdbcType=VARCHAR},
 			UPDATEDATE = SYSDATE
 	</update>
 	
@@ -250,8 +253,13 @@
 		SELECT * FROM APPR1_DOC
 	</select>
 	
-		<select id="ApprovalAcceptSelect" parameterType ="appr1docvo" resultType="appr1docvo">
+	<select id="ApprovalAcceptSelect" parameterType ="appr1docvo" resultType="appr1docvo">
 		SELECT * FROM APPR1_DOC WHERE VDOCNUM = #{vdocnum}
 	</select>
+	
+	<update id="ApprovalAcceptUpdate" parameterType ="appr1docvo">
+		UPDATE APPR1_DOC SET 
+			VCHECK = #{vcheck, jdbcType=VARCHAR}
+	</update>
 	
 </mapper>

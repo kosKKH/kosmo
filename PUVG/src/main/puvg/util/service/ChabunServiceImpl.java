@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import main.puvg.approval.vo.Appr1DocVO;
-import main.puvg.approval.vo.ApprovalListVO;
 import main.puvg.approval.vo.ApprovalTempVO;
 import main.puvg.member.vo.MemberVO;
 import main.puvg.util.dao.ChabunDAO;

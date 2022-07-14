@@ -45,5 +45,6 @@ public interface ApprovalDAO {
 	// 결재파일보기
 	public List<Appr1DocVO> ApprovalListAcceptAll(Appr1DocVO amvo);
 	public List<Appr1DocVO> ApprovalAcceptSelect(Appr1DocVO amvo);
+	public int ApprovalAcceptUpdate(Appr1DocVO amvo);
 
 }

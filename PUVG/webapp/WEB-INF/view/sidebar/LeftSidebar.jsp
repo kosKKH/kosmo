@@ -9,11 +9,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title>Insert title here</title>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="css/LeftSidebar.css" rel="stylesheet" type="text/css" />
-
-
-<script type="text/javascript">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link href="css/LeftSidebar.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
 
 $(document).ready(function(){
 	
@@ -126,8 +129,8 @@ $(document).ready(function(){
 	
 		<div id="menuApproval" class="menuBig">전자결재</div>
 		<div class="menuSmall1">
-			<a href="#" class="menuA">- 결재양식</a><br>
-			<a href="#" class="menuA">- 상신함</a><br>
+			<a href="ApprovalListSelectAll.puvg" class="menuA">- 결재양식</a><br>
+			<a href="ApprovalListAcceptAll.puvg" class="menuA">- 상신함</a><br>
 			<a href="#" class="menuA">- 후열함</a>
 		</div>
 		<div id="menuBoard" class="menuBig">게시판</div>

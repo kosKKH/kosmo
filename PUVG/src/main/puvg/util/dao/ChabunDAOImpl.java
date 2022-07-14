@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import main.puvg.approval.vo.Appr1DocVO;
-import main.puvg.approval.vo.ApprovalListVO;
 import main.puvg.approval.vo.ApprovalTempVO;
 import main.puvg.member.vo.MemberVO;
 

@@ -24,7 +24,6 @@ request.setCharacterEncoding("UTF-8");
 	<link href="css/LeftSidebar.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript">
-	
 	</script>
 	<style>
 	  *{
@@ -89,7 +88,7 @@ request.setCharacterEncoding("UTF-8");
 	<form id="approvalList" name="approvalList">
 	<div class="mainss">
 	<div style="width:100%; height:100px; position:static;"></div>
-	<h1 style="margin:30px">결재문서</h1>
+	<h1 style="margin:30px">결재양식</h1>
 	<input type="button" id="temp" class="w-btn temp" value="임시파일" onclick= "location.href = 'ApprovalTempSelectAll.puvg'">
 	<hr>
 	<div class="maintable">
@@ -104,7 +103,7 @@ request.setCharacterEncoding("UTF-8");
 				ApprovalListVO avo = list.get(i);
 		%>
 		<tr>
-			<td><a href="Appr1DocSelect.puvg?vdocnum=<%= avo.getVdocnum()%>"><%= avo.getVsubject()%></a></td>
+			<td><a href="Appr1DocSelect.puvg?vsubject=<%= avo.getVsubject()%>"><%= avo.getVsubject()%></a></td>
 			<td><%= avo.getVname()%></td>
 			<td><%= avo.getInsertdate()%></td>
 		</tr>

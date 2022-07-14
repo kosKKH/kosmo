@@ -202,7 +202,7 @@ request.setCharacterEncoding("UTF-8");
 				<td> 부서
 				</td>
 				<td>
-					<input type="text" id="vdept" name="vdept" value="A1">
+					<input type="text" id="vdept" name="vdept" value="인사부">
 				</td>
 			</tr>
 			<tr>
@@ -282,10 +282,11 @@ request.setCharacterEncoding("UTF-8");
 		<input type="button" id="temps" name="temps" class="w-btn temps" value="임시저장">	
 		<input type="button" id="approval" name="approval" class="w-btn approval" value="제출하기">
 		<input type="button" id="cancle" name="cancle" class="w-btn cancle" value="취소하기">
-		<input type="hidden" id="vnum" name="vnum">
+		<input type="hidden" id="vnum" name="vnum" value="V202207040001">
 		<input type="hidden" id="vlinecode" name="vlinecode" value="V0001">
 		<input type="hidden" id="vfile" name="vfile">
 		<input type="hidden" id="vsubnum" name="vsubnum">
+		<input type="hidden" id="vcheck" name="vcheck" value="0">
 	</div>
 	</form>
 	</div>

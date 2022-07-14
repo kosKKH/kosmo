@@ -1,5 +1,6 @@
 package main.puvg.approval.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -173,7 +174,7 @@ public class ApprovalController {
 	@GetMapping(value="Appr1DocSelectTemps")
 	public ModelAndView Appr1DocSelectTemps(Appr1DocVO avo, ApprovalTempVO tvo) {
 		
-		logger.info("ApprovalController Appr1DocSelect 함수진입");
+		logger.info("ApprovalController Appr1DocSelectTemps 함수진입");
 		
 		List<Appr1DocVO> listD1 = approvalService.Appr1DocSelect(avo);
 		
@@ -222,7 +223,7 @@ public class ApprovalController {
 	@GetMapping(value="ApprovalAcceptSelect")
 	public ModelAndView ApprovalAcceptSelect(Appr1DocVO avo) {
 		
-		logger.info("ApprovalController Appr1DocSelect 함수진입");
+		logger.info("ApprovalController ApprovalAcceptSelect 함수진입");
 		
 		List<Appr1DocVO> listD1 = approvalService.ApprovalAcceptSelect(avo);
 		
@@ -242,12 +243,34 @@ public class ApprovalController {
 			mav.addObject("vleft", _avo.getVleft());
 			mav.addObject("vline", _avo.getVline());
 			mav.addObject("vfile", _avo.getVfile());
+			mav.addObject("vcheck", _avo.getVcheck());
 			mav.addObject("insertdate", _avo.getInsertdate());
-			
 		}
-		
+
 		mav.setViewName("approval/Appr1DocAccept");
 		return mav;
+	}
+	
+	@GetMapping(value="ApprovalAcceptUpdate")
+	public ModelAndView ApprovalAcceptUpdate(Appr1DocVO avo) {
+		
+		String vline = avo.getVline();
+		String vcheck = avo.getVcheck();
+		logger.info(vline);
+		logger.info(vcheck);
+		String[] lists = vline.split("->");
+		int stamp = Integer.parseInt(vcheck);
+		
+		if(stamp <= lists.length) {
+			stamp ++;
+		}
+		avo.setVcheck(Integer.toString(stamp));
+		mav.addObject("vcheck", stamp);
+		
+		int nCnt = approvalService.ApprovalAcceptUpdate(avo);
+		
+		return mav;
+		
 	}
 	
 }

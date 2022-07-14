@@ -16,6 +16,7 @@ request.setCharacterEncoding("UTF-8");
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<script type="text/javascript">
 
+
 	function call()
 	{
 	    var sdd = document.getElementById("vstart").value;
@@ -57,30 +58,35 @@ request.setCharacterEncoding("UTF-8");
 		document.getElementById("vline").value = vline;
 	}
 	
+    $(document).on("click", "#temps", function(){
+    	
+    	let URL = "ApprovalAcceptUpdate.puvg";
+    	let reqType = "GET"
+    	let dataParam = {vline: $("#vline").val(),
+    					vcheck: $("#vcheck").val(),};
+    	
+    	$.ajax({
+    		url: URL,
+    		type: reqType,
+    		data: dataParam,
+    		success: whenSuccess,
+    		error: whenError
+    	});
+    	
+    	function whenSuccess(resData){
+    		alert('good');
+    		let target =  document.getElementById("vcheck").value;
+    		let tags = "<img src ='/PUVG/css/icons/approval_stamp.jpg' style='width:100px; height:100px;'/>";
+    		$(".stamp td").eq(target).html(tags);
+    	}
+    	
+    	function whenError(resData){
+    		alert('bad');
+    	}
+    	
+    })
+	
 		$(document).ready(function(){
-			$(document).on('click', '#approval', function(){
-				$("#Appr1Doc").attr({
-					"action":"Appr1DocInsert.puvg",
-					"method":"POST",
-					"enctype":"multipart/form-data"
-				}).submit(); 
-			});
-			
-			$(document).on('click', '#temps', function(){
-				$("#Appr1Doc").attr({
-					"action":"ApprovalTempInsert1.puvg",
-					"method":"POST",
-					"enctype":"multipart/form-data"
-				}).submit(); 
-			});
-			
-			$(document).on('click', '#tempbtn', function(){
-				$("#Appr1Doc").attr({
-					"action":"ApprovalTempSelectAll.puvg",
-					"method":"GET",
-					"enctype":"application/x-www-form-urlencoded"
-				}).submit(); 
-			});
 	
 		    var lines = document.getElementById("vline").value;
 		    var stamps = lines.split('->');
@@ -92,36 +98,14 @@ request.setCharacterEncoding("UTF-8");
 		    document.getElementById("tamp2").value = tamp2;
 		    document.getElementById("tamp3").value = tamp3;
 		    
-		    
-		});
-		
-		$(document).on("click", "#acceptbtn", function(){
-			
-			let stampCheckURL = "stampCheck.puvg";
-			let reqType = "GET";
-			let dataparam = { stamps1 : document.getElementById(stamps1).innerText,
-							  stamps2 : document.getElementById(stamps2).innerText,
-							  stamps3 : document.getElementById(stamps3).innerText,};
-			
-			$.ajax({
-				url: stampCheckURL,
-				type: dataParam,
-				success: whenSuccess,
-				error: whenError
-			});
-			
-			function whenSuccess(resData){
-				if("YES" == resData){
-					
-				}else if("NO" == resData){
-					
-				};
-			}
-				
-			function whenError(e){
-
-			}
-			
+    		let target =  document.getElementById("vcheck").value;
+    		let tags = "<img src ='/PUVG/css/icons/approval_stamp.jpg' style='width:100px; height:100px;'/>"; 
+    		if(target == 0){
+    		}else{
+    			for(var i = 0; i <= target-1; i++){
+            		$(".stamp td").eq(i).html(tags);
+        		}
+    		}
 		});
 		
 	</script>
@@ -170,12 +154,13 @@ request.setCharacterEncoding("UTF-8");
 	}
 	
 	.mainss{
-		margin: 60px 30px 0px 330px;
+		margin: 0px 30px 0px 430px;
+		width: 1200px;
 	}
 	
 	.maintable{
 		width: 1463px;
-		height: 585px;
+		height: 575px;
 	}
 	
 	input:focus {
@@ -198,52 +183,53 @@ request.setCharacterEncoding("UTF-8");
 		line-height: 30px;
 	}
 	
-	.stamp > td {
-		width: 80px;
-		height: 80px;
+	tr.stamp > td {
+		width: 100px;
+		height: 100px;
 	}
 	
-	.stamp > tr {
-		border: none;
-		margin: 20px;
+	tr.stampname {
+		text-align: center;
+	}
+	
+	tr.stampname > td > input[type=text]{
+		font-size: 15pt;
 	}
 	
     </style>
 	</head>
 	<body>
-	
 	<div>
 		<jsp:include page="../sidebar/LeftSidebar.jsp" flush="true"/>
 	</div>
 	<div class="mainss" style="width: 1465px">
 	<div style="width:100%; height:100px; position:static;"></div>
 	<h1 style="margin:30px">휴가신청서</h1>
-	<input type="button" id="tempbtn" class="w-btn temp" value="임시파일">
 	<input type="button" id="apprbtn" class="w-btn approval" value="문서함">
 	<hr>
 	<form id="Appr1Doc" name="Appr1Doc">
 	<div style="border: 1px solid black; top: 240px; left: 340px;">
-		<input class="vsubj" id="vsubj" name="vsubj" type="text" style="width: 1450px; height: 30px; font-size: 15px; border:0 solid black;" placeholder="제목을 입력해 주세요.">
+		<input class="vsubj" id="vsubj" name="vsubj" type="text" style="width: 1450px; height: 30px; font-size: 15px; border:0 solid black;" placeholder="제목을 입력해 주세요." readonly>
 	</div>
 	<div style="width: 1450px; height: 100px; align: right; float: left;">
 		<div style="margin: auto; float: right;">
 			<table id="accept" class="accept" style="margin: 20px 0px 0px 0px;">
 			<tr>
 				<tr class="stampname">
-				<td><input type="text" id="tamp1" style="border: none; height: 30px; width: 60px; background: transparent;"></td>
-				<td><input type="text" id="tamp2" style="border: none; height: 30px; width: 60px; background: transparent;"></td>
-				<td><input type="text" id="tamp3" style="border: none; height: 30px; width: 60px; background: transparent;"></td>
+				<td><input type="text" id="tamp1" style="border: none; height: 30px; width: 60px; background: transparent;" readonly></td>
+				<td><input type="text" id="tamp2" style="border: none; height: 30px; width: 60px; background: transparent;" readonly></td>
+				<td><input type="text" id="tamp3" style="border: none; height: 30px; width: 60px; background: transparent;" readonly></td>
 			</tr>
 			<tr>
 				<tr class="stamp">
-				<td id="stamps1"></td>
-				<td id="stapms2"></td>
-				<td id="stapms3"></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 			</table>
 		</div>
 	</div>
-	<div class="maintable" style="border: none; margin: 10px 0px; background-color: #BCA9F5; top: 300px; left: 340px;">
+	<div class="maintable" style="border: none; margin: 10px 0px; background-color: #BCA9F5; top: 300px; left: 340px;" readonly>
 	<div>
 		<div style="float:left; margin-left: 100px; margin-right: 100px;">
 		<table class="Appr1Table" style="border: none; top: 300px; left: 400px; text-align: center;">
@@ -251,28 +237,28 @@ request.setCharacterEncoding("UTF-8");
 				<td> 문서번호
 				</td>
 				<td>
-					<input type="text" id="vdocnum" name="vdocnum" value="${vdocnum}">
+					<input type="text" id="vdocnum" name="vdocnum" value="${vdocnum}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td> 작성일자
 				</td>
 				<td>
-					<input type="text" id="insertdate" name="insertdate" value="${insertdate}">
+					<input type="text" id="insertdate" name="insertdate" value="${insertdate}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td> 부서
 				</td>
 				<td>
-					<input type="text" id="vdept" name="vdept" value="A1">
+					<input type="text" id="vdept" name="vdept" value="인사부" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td> 작성자
 				</td>
 				<td>
-					<input type="text" id="vname" name="vname" value="박주형">
+					<input type="text" id="vname" name="vname" value="박주형" readonly>
 				</td>
 			</tr>
 		</table>
@@ -284,44 +270,44 @@ request.setCharacterEncoding("UTF-8");
 				</td>
 			</tr>
 			<tr>
-				<td><input type="text" id="vfile" name="vfile" style="width: 300px; height: 100px;"></td>
+				<td><input type="text" id="vfile" name="vfile" style="width: 300px; height: 100px;" readonly></td>
 			</tr>
 			<tr>
-				<td style="border: none; text-align: right"><input type="file" id="upbtn" name="upbtn" value="파일첨부" value="${vfile}"></td>
+				<td style="border: none; text-align: right"><input type="file" id="upbtn" name="upbtn" value="파일첨부" value="${vfile}" readonly></td>
 			</tr>
 		</table>
 		</div>
 	</div>
 			<div>
-			<table class="Appr4Table" style="border: none; position: absolute; top: 650px; left: 425px; text-align: center;">
+			<table class="Appr4Table" style="border: none; position: absolute; top: 650px; left: 527px; text-align: center;">
 			<tr>
 				<td style="width: 350px"> 휴가 종류
 				</td>
 				<td>
-					<input type="text" id="vtype" name="vtype" value="${vtype}">
+					<input type="text" id="vtype" name="vtype" value="${vtype}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td> 휴가 시작/종료일
 				</td>
 				<td style="text-align: left;">
-					<input type="text" style="width: 300px;" id="vstart" name="vstart" onchange="call()" value="${vstart}"> 
+					<input type="text" style="width: 300px;" id="vstart" name="vstart" onchange="call()" value="${vstart}" readonly> 
 					~
-					<input type="text" style="width: 300px;" id="vend" name="vend" onchange="call()" value="${vend}">
+					<input type="text" style="width: 300px;" id="vend" name="vend" onchange="call()" value="${vend}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td> 휴가일수
 				</td>
 				<td>
-					<input type="text" id="vdate" name="vdate" value="${vdate}">
+					<input type="text" id="vdate" name="vdate" value="${vdate}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td> 남은휴가일수
 				</td>
 				<td>
-					<input type="text" id="vleft" name="vleft" value="${vleft}">
+					<input type="text" id="vleft" name="vleft" value="${vleft}" readonly>
 				</td>
 			</tr>
 		</table>
@@ -336,6 +322,7 @@ request.setCharacterEncoding("UTF-8");
 		<input type="hidden" id="vfile" name="vfile">
 		<input type="hidden" id="vsubnum" name="vsubnum">
 		<input type="hidden" id="vline" name="vline" value="${vline}">
+		<input type="hidden" id="vcheck" name="vcheck" value="${vcheck}">
 	</div>
 	</form>
 	</div>

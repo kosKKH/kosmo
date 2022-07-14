@@ -70,11 +70,14 @@ request.setCharacterEncoding("UTF-8");
 	}
 	
 	.mainss{
-		margin: 60px 30px 0px 330px;
+		margin: 0px 30px 0px 430px;
+		width: 1200px;
 	}
 	
 	.maintable{
 		height: 760px;
+		position: absolute;
+		left: 400px;
 	}
 	
     </style>

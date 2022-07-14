@@ -15,6 +15,7 @@ public class Appr1DocVO {
 	private String vleft;
 	private String vline;
 	private String vfile;
+	private String vcheck;
 	private String deleteyn;
 	private String insertdate;
 	private String updatedate;
@@ -24,7 +25,7 @@ public class Appr1DocVO {
 	
 	public Appr1DocVO(String vdocnum, String vdept, String vnum, String vname, String vsubj, String vlinecode,
 			String vtype, String vstart, String vend, String vdate, String vleft, String vline, String vfile,
-			String deleteyn, String insertdate, String updatedate) {
+			String deleteyn, String insertdate, String updatedate, String vcheck) {
 		this.vdocnum = vdocnum;
 		this.vdept = vdept;
 		this.vnum = vnum;
@@ -38,6 +39,7 @@ public class Appr1DocVO {
 		this.vleft = vleft;
 		this.vline = vline;
 		this.vfile = vfile;
+		this.vcheck = vcheck;
 		this.deleteyn = deleteyn;
 		this.insertdate = insertdate;
 		this.updatedate = updatedate;
@@ -138,6 +140,14 @@ public class Appr1DocVO {
 	}
 	public void setUpdatedate(String updatedate) {
 		this.updatedate = updatedate;
+	}
+
+	public String getVcheck() {
+		return vcheck;
+	}
+
+	public void setVcheck(String vcheck) {
+		this.vcheck = vcheck;
 	}
 	
 	

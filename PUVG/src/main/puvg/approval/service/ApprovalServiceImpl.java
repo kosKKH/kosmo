@@ -168,4 +168,11 @@ public class ApprovalServiceImpl implements ApprovalService {
 		
 	}
 
+	@Override
+	public int ApprovalAcceptUpdate(Appr1DocVO amvo) {
+		
+		logger.info("ApprovalServiceImpl ApprovalAcceptUpdate() 함수 진입");
+		return approvalDAO.ApprovalAcceptUpdate(amvo);
+	}
+
 }

@@ -151,4 +151,11 @@ public class ApprovalDAOImpl implements ApprovalDAO {
 		return sqlSession.selectOne("ApprovalAcceptSelect", amvo);
 	}
 
+	@Override
+	public int ApprovalAcceptUpdate(Appr1DocVO amvo) {
+		logger.info("ApprovalDAOImpl ApprovalAcceptUpdate() 함수 진입");
+		
+		return (Integer)sqlSession.insert("ApprovalAcceptUpdate", amvo);
+	}
+
 }
